@@ -7,10 +7,10 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Graph Processing
   - Big Data
-  - Hadoop
   - BSP
+  - Graph Processing
+  - Hadoop
 created: '2026-03-16'
 modified: '2026-03-16'
 url: >-
@@ -23,9 +23,9 @@ apis:
       Giraph provides a Java API based on the Bulk Synchronous Parallel (BSP) model for implementing graph algorithms, with Vertex, Edge, and Master compute APIs for distributed graph processing on Hadoop.
     humanURL: https://giraph.apache.org/quick_start.html
     tags:
-      - Java
-      - Graph
       - BSP
+      - Graph
+      - Java
     properties:
       - type: Documentation
         url: https://giraph.apache.org/quick_start.html

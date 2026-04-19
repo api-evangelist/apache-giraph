@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/json-schema/giraph-job-cluster-metrics-response-schema.json",
+  "title": "ClusterMetricsResponse",
+  "description": "YARN cluster metrics response",
+  "type": "object",
+  "properties": {
+    "clusterMetrics": {
+      "type": "object",
+      "description": "Cluster resource metrics",
+      "properties": {
+        "activeNodes": {
+          "type": "integer",
+          "description": "Number of active nodes",
+          "example": "5"
+        },
+        "totalMB": {
+          "type": "integer",
+          "description": "Total cluster memory in MB",
+          "example": "40960"
+        },
+        "availableMB": {
+          "type": "integer",
+          "description": "Available memory in MB",
+          "example": "20480"
+        },
+        "totalVirtualCores": {
+          "type": "integer",
+          "description": "Total virtual CPU cores",
+          "example": "20"
+        },
+        "availableVirtualCores": {
+          "type": "integer",
+          "description": "Available virtual CPU cores",
+          "example": "10"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/json-schema/giraph-job-application-info-schema.json",
+  "title": "ApplicationInfo",
+  "description": "YARN application (Giraph job) status information",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "YARN application ID",
+      "example": "application_1718153645993_0001"
+    },
+    "name": {
+      "type": "string",
+      "description": "Application name (usually Giraph followed by the algorithm name)",
+      "example": "Giraph PageRank"
+    },
+    "applicationType": {
+      "type": "string",
+      "description": "Application type (MAPREDUCE for Giraph)",
+      "example": "MAPREDUCE"
+    },
+    "state": {
+      "type": "string",
+      "description": "Current application state",
+      "enum": [
+        "NEW",
+        "NEW_SAVING",
+        "SUBMITTED",
+        "ACCEPTED",
+        "RUNNING",
+        "FINISHED",
+        "FAILED",
+        "KILLED"
+      ],
+      "example": "RUNNING"
+    },
+    "finalStatus": {
+      "type": "string",
+      "description": "Final status after completion",
+      "enum": [
+        "UNDEFINED",
+        "SUCCEEDED",
+        "FAILED",
+        "KILLED"
+      ],
+      "example": "UNDEFINED"
+    },
+    "progress": {
+      "type": "number",
+      "description": "Job completion percentage (0-100)",
+      "example": "50.0"
+    },
+    "trackingUrl": {
+      "type": "string",
+      "description": "URL for job tracking UI",
+      "example": "http://localhost:8088/proxy/application_1718153645993_0001/"
+    },
+    "queue": {
+      "type": "string",
+      "description": "YARN queue name",
+      "example": "default"
+    },
+    "startedTime": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Job start time in milliseconds since epoch",
+      "example": "1718153645993"
+    },
+    "finishedTime": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Job finish time in milliseconds (0 if still running)",
+      "example": "0"
+    },
+    "elapsedTime": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Elapsed time in milliseconds",
+      "example": "30000"
+    },
+    "numContainers": {
+      "type": "integer",
+      "description": "Number of running containers",
+      "example": "4"
+    }
+  }
+}

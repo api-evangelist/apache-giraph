@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/json-structure/giraph-job-application-info-structure.json",
+  "name": "ApplicationInfo",
+  "description": "YARN application (Giraph job) status information",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "applicationType": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "finalStatus": {
+      "type": "string"
+    },
+    "progress": {
+      "type": "double"
+    },
+    "trackingUrl": {
+      "type": "string"
+    },
+    "queue": {
+      "type": "string"
+    },
+    "startedTime": {
+      "type": "int64"
+    },
+    "finishedTime": {
+      "type": "int64"
+    },
+    "elapsedTime": {
+      "type": "int64"
+    },
+    "numContainers": {
+      "type": "int32"
+    }
+  }
+}

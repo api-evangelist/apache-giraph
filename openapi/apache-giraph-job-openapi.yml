@@ -1,0 +1,219 @@
+openapi: 3.0.3
+info:
+  title: Apache Giraph Job Monitoring API
+  version: "1.3.0"
+  description: Monitoring and status API for Apache Giraph graph processing jobs running on Apache Hadoop YARN. Note - Apache Giraph has been retired (2024).
+  contact:
+    email: dev@giraph.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: http://localhost:8088
+    description: YARN ResourceManager REST API (for Giraph job monitoring)
+
+paths:
+  /ws/v1/cluster/apps:
+    get:
+      operationId: listGiraphJobs
+      summary: Apache Giraph List Graph Processing Jobs
+      description: List Giraph graph processing jobs running on YARN cluster via the ResourceManager REST API.
+      tags:
+        - Job Management
+      parameters:
+        - name: applicationTypes
+          in: query
+          required: false
+          description: Filter by application type (e.g., MAPREDUCE for Giraph jobs)
+          schema:
+            type: string
+            example: MAPREDUCE
+        - name: states
+          in: query
+          required: false
+          description: Filter by job state (RUNNING, FINISHED, FAILED, KILLED)
+          schema:
+            type: string
+            example: RUNNING
+      responses:
+        '200':
+          description: Jobs listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationsResponse'
+              examples:
+                ListGiraphJobs200Example:
+                  summary: Default listGiraphJobs 200 response
+                  x-microcks-default: true
+                  value:
+                    apps:
+                      app:
+                        - id: application_1718153645993_0001
+                          name: "Giraph: PageRank"
+                          applicationType: MAPREDUCE
+                          state: RUNNING
+                          finalStatus: UNDEFINED
+                          progress: 50.0
+                          trackingUrl: http://localhost:8088/proxy/application_1718153645993_0001/
+                          queue: default
+                          startedTime: 1718153645993
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+  /ws/v1/cluster/apps/{appId}:
+    get:
+      operationId: getGiraphJob
+      summary: Apache Giraph Get Graph Processing Job
+      description: Get detailed status and metrics for a specific Giraph job running on YARN.
+      tags:
+        - Job Management
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          description: YARN application ID for the Giraph job
+          schema:
+            type: string
+            example: application_1718153645993_0001
+      responses:
+        '200':
+          description: Job details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResponse'
+        '404':
+          description: Job not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+  /ws/v1/cluster/metrics:
+    get:
+      operationId: getClusterMetrics
+      summary: Apache Giraph Get Cluster Metrics
+      description: Get YARN cluster metrics relevant to Giraph job execution capacity.
+      tags:
+        - Cluster
+      responses:
+        '200':
+          description: Cluster metrics retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterMetricsResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+components:
+  schemas:
+    ApplicationsResponse:
+      type: object
+      description: YARN applications list response
+      properties:
+        apps:
+          type: object
+          description: Applications wrapper
+          properties:
+            app:
+              type: array
+              description: List of application entries
+              items:
+                $ref: '#/components/schemas/ApplicationInfo'
+
+    ApplicationResponse:
+      type: object
+      description: Single YARN application response
+      properties:
+        app:
+          $ref: '#/components/schemas/ApplicationInfo'
+
+    ApplicationInfo:
+      type: object
+      description: YARN application (Giraph job) status information
+      properties:
+        id:
+          type: string
+          description: YARN application ID
+          example: application_1718153645993_0001
+        name:
+          type: string
+          description: Application name (usually Giraph followed by the algorithm name)
+          example: Giraph PageRank
+        applicationType:
+          type: string
+          description: Application type (MAPREDUCE for Giraph)
+          example: MAPREDUCE
+        state:
+          type: string
+          description: Current application state
+          enum: [NEW, NEW_SAVING, SUBMITTED, ACCEPTED, RUNNING, FINISHED, FAILED, KILLED]
+          example: RUNNING
+        finalStatus:
+          type: string
+          description: Final status after completion
+          enum: [UNDEFINED, SUCCEEDED, FAILED, KILLED]
+          example: UNDEFINED
+        progress:
+          type: number
+          description: Job completion percentage (0-100)
+          example: 50.0
+        trackingUrl:
+          type: string
+          description: URL for job tracking UI
+          example: http://localhost:8088/proxy/application_1718153645993_0001/
+        queue:
+          type: string
+          description: YARN queue name
+          example: default
+        startedTime:
+          type: integer
+          format: int64
+          description: Job start time in milliseconds since epoch
+          example: 1718153645993
+        finishedTime:
+          type: integer
+          format: int64
+          description: Job finish time in milliseconds (0 if still running)
+          example: 0
+        elapsedTime:
+          type: integer
+          format: int64
+          description: Elapsed time in milliseconds
+          example: 30000
+        numContainers:
+          type: integer
+          description: Number of running containers
+          example: 4
+
+    ClusterMetricsResponse:
+      type: object
+      description: YARN cluster metrics response
+      properties:
+        clusterMetrics:
+          type: object
+          description: Cluster resource metrics
+          properties:
+            activeNodes:
+              type: integer
+              description: Number of active nodes
+              example: 5
+            totalMB:
+              type: integer
+              description: Total cluster memory in MB
+              example: 40960
+            availableMB:
+              type: integer
+              description: Available memory in MB
+              example: 20480
+            totalVirtualCores:
+              type: integer
+              description: Total virtual CPU cores
+              example: 20
+            availableVirtualCores:
+              type: integer
+              description: Available virtual CPU cores
+              example: 10

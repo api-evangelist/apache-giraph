@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/json-schema/giraph-job-application-response-schema.json",
+  "title": "ApplicationResponse",
+  "description": "Single YARN application response",
+  "type": "object",
+  "properties": {
+    "app": {
+      "$ref": "#/components/schemas/ApplicationInfo"
+    }
+  }
+}

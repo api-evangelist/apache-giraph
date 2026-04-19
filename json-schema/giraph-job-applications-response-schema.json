@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/json-schema/giraph-job-applications-response-schema.json",
+  "title": "ApplicationsResponse",
+  "description": "YARN applications list response",
+  "type": "object",
+  "properties": {
+    "apps": {
+      "type": "object",
+      "description": "Applications wrapper",
+      "properties": {
+        "app": {
+          "type": "array",
+          "description": "List of application entries",
+          "items": {
+            "$ref": "#/components/schemas/ApplicationInfo"
+          }
+        }
+      }
+    }
+  }
+}

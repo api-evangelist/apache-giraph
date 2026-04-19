@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/json-structure/giraph-job-cluster-metrics-response-structure.json",
+  "name": "ClusterMetricsResponse",
+  "description": "YARN cluster metrics response",
+  "type": "object",
+  "properties": {
+    "clusterMetrics": {
+      "type": "object"
+    }
+  }
+}

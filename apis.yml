@@ -39,7 +39,7 @@ apis:
         url: openapi/apache-giraph-job-openapi.yml
       - type: JSONSchema
         url: json-schema/giraph-job-application-info-schema.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/apache-giraph-job-context.jsonld
 
   - aid: apache-giraph:apache-giraph-java-api

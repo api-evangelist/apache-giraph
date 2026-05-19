@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Giraph Job Monitoring API — Cluster
+  description: 'Apache Giraph Job Monitoring API — Cluster. 1 operations. Lead operation: Apache Giraph Get Cluster Metrics.
+    Self-contained Naftiko capability covering one Apache Giraph business surface.'
+  tags:
+  - Apache Giraph
+  - Cluster
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_GIRAPH_API_KEY: APACHE_GIRAPH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: job-cluster
+    baseUri: http://localhost:8088
+    description: Apache Giraph Job Monitoring API — Cluster business capability. Self-contained, no shared references.
+    resources:
+    - name: ws-v1-cluster-metrics
+      path: /ws/v1/cluster/metrics
+      operations:
+      - name: getclustermetrics
+        method: GET
+        description: Apache Giraph Get Cluster Metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: job-cluster-rest
+    port: 8080
+    description: REST adapter for Apache Giraph Job Monitoring API — Cluster. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/ws/v1/cluster/metrics
+      name: ws-v1-cluster-metrics
+      description: REST surface for ws-v1-cluster-metrics.
+      operations:
+      - method: GET
+        name: getclustermetrics
+        description: Apache Giraph Get Cluster Metrics
+        call: job-cluster.getclustermetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: job-cluster-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Giraph Job Monitoring API — Cluster. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-giraph-get-cluster-metrics
+      description: Apache Giraph Get Cluster Metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: job-cluster.getclustermetrics
+      outputParameters:
+      - type: object
+        mapping: $.

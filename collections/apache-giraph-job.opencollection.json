@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Giraph Job Monitoring API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Job Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Giraph List Graph Processing Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8088/ws/v1/cluster/apps",
+            "params": [
+              {
+                "name": "applicationTypes",
+                "value": "",
+                "type": "query",
+                "description": "Filter by application type (e.g., MAPREDUCE for Giraph jobs)"
+              },
+              {
+                "name": "states",
+                "value": "",
+                "type": "query",
+                "description": "Filter by job state (RUNNING, FINISHED, FAILED, KILLED)"
+              }
+            ]
+          },
+          "docs": "List Giraph graph processing jobs running on YARN cluster via the ResourceManager REST API."
+        },
+        {
+          "info": {
+            "name": "Apache Giraph Get Graph Processing Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8088/ws/v1/cluster/apps/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "YARN application ID for the Giraph job"
+              }
+            ]
+          },
+          "docs": "Get detailed status and metrics for a specific Giraph job running on YARN."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Giraph Get Cluster Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8088/ws/v1/cluster/metrics"
+          },
+          "docs": "Get YARN cluster metrics relevant to Giraph job execution capacity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

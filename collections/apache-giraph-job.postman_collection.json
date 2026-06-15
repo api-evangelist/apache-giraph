@@ -1,0 +1,352 @@
+{
+  "item": [
+    {
+      "id": "e499a2ba-2406-45ba-bad7-22451d004d3f",
+      "name": "Job Management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4b0c404-9978-4867-81f3-69cab7f8da8e",
+          "name": "Apache Giraph List Graph Processing Jobs",
+          "request": {
+            "name": "Apache Giraph List Graph Processing Jobs",
+            "description": {
+              "content": "List Giraph graph processing jobs running on YARN cluster via the ResourceManager REST API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ws",
+                "v1",
+                "cluster",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "applicationTypes",
+                  "value": "<string>",
+                  "description": "Filter by application type (e.g., MAPREDUCE for Giraph jobs)"
+                },
+                {
+                  "disabled": false,
+                  "key": "states",
+                  "value": "<string>",
+                  "description": "Filter by job state (RUNNING, FINISHED, FAILED, KILLED)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63bc95d6-7ff3-4160-8840-fa98ef1ba877",
+              "name": "Jobs listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "v1",
+                    "cluster",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "applicationTypes",
+                      "value": "MAPREDUCE"
+                    },
+                    {
+                      "key": "states",
+                      "value": "RUNNING"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apps\": {\n    \"app\": [\n      {\n        \"id\": \"application_1718153645993_0001\",\n        \"name\": \"Giraph: PageRank\",\n        \"applicationType\": \"MAPREDUCE\",\n        \"state\": \"RUNNING\",\n        \"finalStatus\": \"UNDEFINED\",\n        \"progress\": 50,\n        \"trackingUrl\": \"http://localhost:8088/proxy/application_1718153645993_0001/\",\n        \"queue\": \"default\",\n        \"startedTime\": 1718153645993\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6fb4abd-bce1-488a-88b5-d7f03a35f93a",
+          "name": "Apache Giraph Get Graph Processing Job",
+          "request": {
+            "name": "Apache Giraph Get Graph Processing Job",
+            "description": {
+              "content": "Get detailed status and metrics for a specific Giraph job running on YARN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ws",
+                "v1",
+                "cluster",
+                "apps",
+                ":appId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) YARN application ID for the Giraph job"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df34ae2e-bee1-4e99-a667-aec18ab818e4",
+              "name": "Job details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "v1",
+                    "cluster",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) YARN application ID for the Giraph job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"app\": {\n    \"id\": \"application_1718153645993_0001\",\n    \"name\": \"Giraph PageRank\",\n    \"applicationType\": \"MAPREDUCE\",\n    \"state\": \"RUNNING\",\n    \"finalStatus\": \"UNDEFINED\",\n    \"progress\": 50,\n    \"trackingUrl\": \"http://localhost:8088/proxy/application_1718153645993_0001/\",\n    \"queue\": \"default\",\n    \"startedTime\": 1718153645993,\n    \"finishedTime\": 0,\n    \"elapsedTime\": 30000,\n    \"numContainers\": 4\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0df287fb-921b-4029-bab3-cccdb740d689",
+              "name": "Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "v1",
+                    "cluster",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) YARN application ID for the Giraph job"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5fdec31a-e766-40ec-a5c1-20715304cca3",
+      "name": "Cluster",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ca79971-da78-4b69-827b-0857eb61ddda",
+          "name": "Apache Giraph Get Cluster Metrics",
+          "request": {
+            "name": "Apache Giraph Get Cluster Metrics",
+            "description": {
+              "content": "Get YARN cluster metrics relevant to Giraph job execution capacity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ws",
+                "v1",
+                "cluster",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ef2e9b9-634c-4381-bd2d-bc90d1a0e03a",
+              "name": "Cluster metrics retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "v1",
+                    "cluster",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clusterMetrics\": {\n    \"activeNodes\": 5,\n    \"totalMB\": 40960,\n    \"availableMB\": 20480,\n    \"totalVirtualCores\": 20,\n    \"availableVirtualCores\": 10\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8088",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6fbef644-a3b1-432f-888a-0b1083859dd9",
+    "name": "Apache Giraph Job Monitoring API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Monitoring and status API for Apache Giraph graph processing jobs running on Apache Hadoop YARN. Note - Apache Giraph has been retired (2024).\n\nContact Support:\n Email: dev@giraph.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

@@ -61,6 +61,10 @@ apis:
         url: https://search.maven.org/artifact/org.apache.giraph/giraph-core
         title: Java SDK (Maven Central)
 common:
+  - type: VulnerabilityDisclosure
+    url: security/apache-giraph-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/apache-giraph-domain-security.yml
   - type: Documentation
     url: https://giraph.apache.org/
   - type: GettingStarted

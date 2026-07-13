@@ -1,4 +1,16 @@
-# Apache Giraph Job API Spectral Ruleset
+# apache-giraph — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - operationid-casing: camel @ 100% (n=3)
+#   - schema-names-casing: pascal @ 100% (n=4)
+#   - schema-properties-casing: camel @ 53% (n=15)
+#   - merge: kept 7 existing, added 4 measured, upgraded 0
+#   - added: operationid-casing, schema-names-casing, schema-properties-casing, no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
   info-title-required:
     description: Info title must be defined
@@ -28,7 +40,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^Apache Giraph"
+        match: ^Apache Giraph
   operation-operationId-required:
     description: All operations must have an operationId
     severity: error
@@ -49,4 +61,36 @@ rules:
     given: $.paths[*][get,post,put,delete,patch].parameters[*]
     then:
       field: description
+      function: truthy
+  operationid-casing:
+    description: Operation IDs should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be camelCase (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: camel
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
       function: truthy

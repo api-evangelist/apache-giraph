@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: Apache Giraph Job Monitoring Cluster API
+  version: 1.3.0
+  description: Monitoring and status API for Apache Giraph graph processing jobs running on Apache Hadoop YARN. Note - Apache Giraph has been retired (2024).
+  contact:
+    email: dev@giraph.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8088
+  description: YARN ResourceManager REST API (for Giraph job monitoring)
+tags:
+- name: Cluster
+paths:
+  /ws/v1/cluster/metrics:
+    get:
+      operationId: getClusterMetrics
+      summary: Apache Giraph Get Cluster Metrics
+      description: Get YARN cluster metrics relevant to Giraph job execution capacity.
+      tags:
+      - Cluster
+      responses:
+        '200':
+          description: Cluster metrics retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterMetricsResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ClusterMetricsResponse:
+      type: object
+      description: YARN cluster metrics response
+      properties:
+        clusterMetrics:
+          type: object
+          description: Cluster resource metrics
+          properties:
+            activeNodes:
+              type: integer
+              description: Number of active nodes
+              example: 5
+            totalMB:
+              type: integer
+              description: Total cluster memory in MB
+              example: 40960
+            availableMB:
+              type: integer
+              description: Available memory in MB
+              example: 20480
+            totalVirtualCores:
+              type: integer
+              description: Total virtual CPU cores
+              example: 20
+            availableVirtualCores:
+              type: integer
+              description: Available virtual CPU cores
+              example: 10

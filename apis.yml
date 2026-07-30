@@ -5,9 +5,21 @@ description: >-
   Google's Pregel and provides a simple yet flexible Java API for graph algorithms at massive scale using the Bulk
   Synchronous Parallel (BSP) model. Note - Apache Giraph has been retired as of 2024.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-giraph.png
 tags:
   - Apache
   - Big Data
@@ -21,45 +33,55 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: apache-giraph:apache-giraph-job-api
-    name: Apache Giraph Job Monitoring API
-    description: >-
-      Monitoring API for Apache Giraph graph processing jobs via the YARN ResourceManager REST API, providing job
-      status, progress tracking, and cluster capacity metrics.
-    humanURL: https://giraph.apache.org/quick_start.html
-    baseURL: http://localhost:8088
-    tags:
-      - BSP
-      - Graph
-      - Hadoop
-      - Job Management
-      - YARN
-    properties:
-      - type: Documentation
-        url: https://giraph.apache.org/quick_start.html
-      - type: OpenAPI
-        url: openapi/apache-giraph-job-openapi.yml
-      - type: JSONSchema
-        url: json-schema/giraph-job-application-info-schema.json
-      - type: JSONLD
-        url: json-ld/apache-giraph-job-context.jsonld
-  - aid: apache-giraph:apache-giraph-java-api
-    name: Apache Giraph Java API
-    description: >-
-      Java API based on the Bulk Synchronous Parallel (BSP) model for implementing graph algorithms, with Vertex, Edge,
-      and Master compute APIs for distributed graph processing on Hadoop.
-    humanURL: https://giraph.apache.org/apidocs/
-    tags:
-      - BSP
-      - Graph
-      - Java
-      - SDK
-    properties:
-      - type: Documentation
-        url: https://giraph.apache.org/apidocs/
-      - type: SDKs
-        url: https://search.maven.org/artifact/org.apache.giraph/giraph-core
-        title: Java SDK (Maven Central)
+- aid: apache-giraph:apache-giraph-java-api
+  name: Apache Giraph Java API
+  description: >-
+    Java API based on the Bulk Synchronous Parallel (BSP) model for implementing graph algorithms, with
+    Vertex, Edge, and Master compute APIs for distributed graph processing on Hadoop.
+  humanURL: https://giraph.apache.org/apidocs/
+  tags:
+  - BSP
+  - Graph
+  - Java
+  - SDK
+  properties:
+  - type: Documentation
+    url: https://giraph.apache.org/apidocs/
+  - type: SDKs
+    url: https://search.maven.org/artifact/org.apache.giraph/giraph-core
+    title: Java SDK (Maven Central)
+- aid: apache-giraph:apache-giraph-cluster-api
+  name: Apache Giraph Cluster API
+  description: The Cluster API from Apache Giraph — 1 operation(s) for cluster.
+  humanURL: https://giraph.apache.org/quick_start.html
+  baseURL: http://localhost:8088
+  tags:
+  - Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-giraph-cluster-api-openapi.yml
+  - type: Documentation
+    url: https://giraph.apache.org/quick_start.html
+  - type: JSONSchema
+    url: json-schema/giraph-job-application-info-schema.json
+  - type: JSONLD
+    url: json-ld/apache-giraph-job-context.jsonld
+- aid: apache-giraph:apache-giraph-job-management-api
+  name: Apache Giraph Job Management API
+  description: The Job Management API from Apache Giraph — 2 operation(s) for job management.
+  humanURL: https://giraph.apache.org/quick_start.html
+  baseURL: http://localhost:8088
+  tags:
+  - Job Management
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-giraph-job-management-api-openapi.yml
+  - type: Documentation
+    url: https://giraph.apache.org/quick_start.html
+  - type: JSONSchema
+    url: json-schema/giraph-job-application-info-schema.json
+  - type: JSONLD
+    url: json-ld/apache-giraph-job-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/apache-giraph-agentic-access.yml

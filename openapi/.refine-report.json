@@ -1,0 +1,16 @@
+{
+  "provider": "apache-giraph",
+  "sources": [
+    "apache-giraph-cluster-api-openapi.yml",
+    "apache-giraph-job-management-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-giraph-cluster-api-openapi.yml",
+    "apache-giraph-job-management-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

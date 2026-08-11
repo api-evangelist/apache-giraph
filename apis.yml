@@ -83,6 +83,11 @@ apis:
   - type: JSONLD
     url: json-ld/apache-giraph-job-context.jsonld
 common:
+  - type: CodeOfConduct
+    url: https://github.com/apache/.github/blob/main/.github/CODE_OF_CONDUCT.md
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/apache/giraph/blob/trunk/LICENSE
   - type: AgenticAccess
     url: agentic-access/apache-giraph-agentic-access.yml
   - type: VulnerabilityDisclosure

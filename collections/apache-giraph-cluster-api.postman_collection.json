@@ -1,0 +1,108 @@
+{
+  "item": [
+    {
+      "id": "701f2e7d-0cee-4e50-a6c6-37c23c573370",
+      "name": "Cluster",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a89c7085-bfe2-4138-bb4a-0e8d430d128c",
+          "name": "Apache Giraph Get Cluster Metrics",
+          "request": {
+            "name": "Apache Giraph Get Cluster Metrics",
+            "description": {
+              "content": "Get YARN cluster metrics relevant to Giraph job execution capacity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ws",
+                "v1",
+                "cluster",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07fe3190-29ba-427b-b4d5-0760ba0fe33d",
+              "name": "Cluster metrics retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "v1",
+                    "cluster",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clusterMetrics\": {\n    \"activeNodes\": 5,\n    \"totalMB\": 40960,\n    \"availableMB\": 20480,\n    \"totalVirtualCores\": 20,\n    \"availableVirtualCores\": 10\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8088",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "73d67b65-ce33-498d-9ff7-240fc9062927",
+    "name": "Apache Giraph Job Monitoring Cluster API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Monitoring and status API for Apache Giraph graph processing jobs running on Apache Hadoop YARN. Note - Apache Giraph has been retired (2024).\n\nContact Support:\n Email: dev@giraph.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

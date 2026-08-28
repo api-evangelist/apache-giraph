@@ -5,6 +5,19 @@ description: >-
   Google's Pregel and provides a simple yet flexible Java API for graph algorithms at massive scale using the Bulk
   Synchronous Parallel (BSP) model. Note - Apache Giraph has been retired as of 2024.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown

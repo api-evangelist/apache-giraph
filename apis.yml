@@ -104,6 +104,8 @@ apis:
   - type: JSONLD
     url: json-ld/apache-giraph-job-context.jsonld
 common:
+  - type: Website
+    url: https://www.apache.org/
   - type: CodeOfConduct
     url: https://github.com/apache/.github/blob/main/.github/CODE_OF_CONDUCT.md
   - type: License

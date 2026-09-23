@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apache Giraph Job Monitoring Cluster Job Management API
+  title: Apache Giraph Job Monitoring Job Management API
   version: 1.3.0
   description: Monitoring and status API for Apache Giraph graph processing jobs running on Apache Hadoop YARN. Note - Apache Giraph has been retired (2024).
   contact:
@@ -91,25 +91,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ApplicationsResponse:
-      type: object
-      description: YARN applications list response
-      properties:
-        apps:
-          type: object
-          description: Applications wrapper
-          properties:
-            app:
-              type: array
-              description: List of application entries
-              items:
-                $ref: '#/components/schemas/ApplicationInfo'
-    ApplicationResponse:
-      type: object
-      description: Single YARN application response
-      properties:
-        app:
-          $ref: '#/components/schemas/ApplicationInfo'
     ApplicationInfo:
       type: object
       description: YARN application (Giraph job) status information
@@ -179,3 +160,22 @@ components:
           type: integer
           description: Number of running containers
           example: 4
+    ApplicationsResponse:
+      type: object
+      description: YARN applications list response
+      properties:
+        apps:
+          type: object
+          description: Applications wrapper
+          properties:
+            app:
+              type: array
+              description: List of application entries
+              items:
+                $ref: '#/components/schemas/ApplicationInfo'
+    ApplicationResponse:
+      type: object
+      description: Single YARN application response
+      properties:
+        app:
+          $ref: '#/components/schemas/ApplicationInfo'

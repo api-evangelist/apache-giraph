@@ -1,8 +1,7 @@
 {
   "provider": "apache-giraph",
   "sources": [
-    "apache-giraph-cluster-api-openapi.yml",
-    "apache-giraph-job-management-api-openapi.yml"
+    "_original/apache-giraph-job-openapi.yml"
   ],
   "outputs": [
     "apache-giraph-cluster-api-openapi.yml",
@@ -11,6 +10,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apache-giraph-job-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apache-giraph-job-openapi.yml: declared missing tag: Cluster",
+    "apache-giraph-job-openapi.yml: declared missing tag: Job Management",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "apache-giraph-cluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-giraph-job-management-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

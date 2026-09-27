@@ -39,7 +39,7 @@ tags:
   - BSP
   - Graph Processing
   - Hadoop
-  - Open-Source
+  - Open Source
   - Retired
 tags_raw:
   - Apache
@@ -49,6 +49,7 @@ tags_raw:
   - Hadoop
   - Open Source
   - Retired
+  - Open-Source
 created: '2026-03-16'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/apis.yml

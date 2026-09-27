@@ -91,6 +91,25 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ApplicationResponse:
+      type: object
+      description: Single YARN application response
+      properties:
+        app:
+          $ref: '#/components/schemas/ApplicationInfo'
+    ApplicationsResponse:
+      type: object
+      description: YARN applications list response
+      properties:
+        apps:
+          type: object
+          description: Applications wrapper
+          properties:
+            app:
+              type: array
+              description: List of application entries
+              items:
+                $ref: '#/components/schemas/ApplicationInfo'
     ApplicationInfo:
       type: object
       description: YARN application (Giraph job) status information
@@ -160,22 +179,3 @@ components:
           type: integer
           description: Number of running containers
           example: 4
-    ApplicationsResponse:
-      type: object
-      description: YARN applications list response
-      properties:
-        apps:
-          type: object
-          description: Applications wrapper
-          properties:
-            app:
-              type: array
-              description: List of application entries
-              items:
-                $ref: '#/components/schemas/ApplicationInfo'
-    ApplicationResponse:
-      type: object
-      description: Single YARN application response
-      properties:
-        app:
-          $ref: '#/components/schemas/ApplicationInfo'

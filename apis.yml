@@ -105,6 +105,12 @@ apis:
   - type: JSONLD
     url: json-ld/apache-giraph-job-context.jsonld
 common:
+  - type: Plans
+    url: plans/apache-giraph-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/apache-giraph-rate-limits.yml
+  - type: FinOps
+    url: finops/apache-giraph-finops.yml
   - type: Website
     url: https://www.apache.org/
   - type: CodeOfConduct

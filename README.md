@@ -1,4 +1,4 @@
-# Apache Giraph (apache-giraph)
+# Apache Giraph
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,88 +66,165 @@
 
 Apache Giraph is an iterative graph processing system built for high scalability on Apache Hadoop. It is modeled after Google's Pregel and provides a simple yet flexible Java API for graph algorithms at massive scale using the Bulk Synchronous Parallel (BSP) model. Note - Apache Giraph has been retired as of 2024.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/apache-giraph/refs/heads/main/apis.yml)
+**Areas:** Apache · Big Data · BSP · Graph Processing · Hadoop · Open Source · Retired
 
-## Scope
+## Apache Giraph on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Apache Giraph is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apache-giraph/](https://apis.io/providers/apache-giraph/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Apache
-- Big Data
-- BSP
-- Graph Processing
-- Hadoop
-- Open Source
-- Retired
+- [Apache Giraph Java API](https://apis.io/apis/apache-giraph/apache-giraph-java-api/) — Java API based on the Bulk Synchronous Parallel (BSP) model for implementing graph algorithms, with Vertex, Edge, and Master compute APIs for distributed…
+- [Apache Giraph Cluster API](https://apis.io/apis/apache-giraph/apache-giraph-cluster-api/) — The Cluster API from Apache Giraph — 1 operation(s) for cluster.
+- [Apache Giraph Job Management API](https://apis.io/apis/apache-giraph/apache-giraph-job-management-api/) — The Job Management API from Apache Giraph — 2 operation(s) for job management.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Apache Giraph Job Monitoring API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Monitoring API for Apache Giraph graph processing jobs via the YARN ResourceManager REST API, providing job status, progress tracking, and cluster capacity metrics.
+- [Apache Giraph Agentic Access](https://apis.io/agentic-access/apache-giraph/apache-giraph-agentic-access/)
 
-- **Human URL:** [https://giraph.apache.org/quick_start.html](https://giraph.apache.org/quick_start.html)
-- **Base URL:** `http://localhost:8088`
+#### JSON Schema (4)
 
-#### Tags
+The data models the API reads and writes.
 
-- BSP
-- Graph
-- Hadoop
-- Job Management
-- YARN
+- [ApplicationInfo](https://apis.io/schemas/apache-giraph/giraph-job-application-info/)
+- [ApplicationResponse](https://apis.io/schemas/apache-giraph/giraph-job-application-response/)
+- [ApplicationsResponse](https://apis.io/schemas/apache-giraph/giraph-job-applications-response/)
+- [ClusterMetricsResponse](https://apis.io/schemas/apache-giraph/giraph-job-cluster-metrics-response/)
 
-#### Properties
+#### JSON Structure (4)
 
-- [Documentation](https://giraph.apache.org/quick_start.html)
-- [OpenAPI](openapi/apache-giraph-job-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apache-giraph-job.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apache-giraph-job.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/giraph-job-application-info-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/apache-giraph-job-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Data models expressed in JSON Structure.
 
-### Apache Giraph Java API
+- [Giraph Job Application Info Structure](https://apis.io/json-structure/apache-giraph/giraph-job-application-info-structure/)
+- [Giraph Job Application Response Structure](https://apis.io/json-structure/apache-giraph/giraph-job-application-response-structure/)
+- [Giraph Job Applications Response Structure](https://apis.io/json-structure/apache-giraph/giraph-job-applications-response-structure/)
+- [Giraph Job Cluster Metrics Response Structure](https://apis.io/json-structure/apache-giraph/giraph-job-cluster-metrics-response-structure/)
 
-Java API based on the Bulk Synchronous Parallel (BSP) model for implementing graph algorithms, with Vertex, Edge, and Master compute APIs for distributed graph processing on Hadoop.
+#### JSON-LD (1)
 
-- **Human URL:** [https://giraph.apache.org/apidocs/](https://giraph.apache.org/apidocs/)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Apache Giraph Job Context](https://apis.io/jsonld/apache-giraph/apache-giraph-job-context/)
 
-- BSP
-- Graph
-- Java
-- SDK
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://giraph.apache.org/apidocs/)
-- [SDK](https://search.maven.org/artifact/org.apache.giraph/giraph-core)
-- [Postman Collection](collections/apache-giraph-job.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apache-giraph-job.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Apache Giraph Vocabulary](https://apis.io/vocabularies/apache-giraph/apache-giraph-vocabulary/)
 
-## Common Properties
+#### Examples (4)
 
+Example requests and responses.
+
+- [Giraph Job Application Info Example](https://apis.io/examples/apache-giraph/giraph-job-application-info-example/)
+- [Giraph Job Application Response Example](https://apis.io/examples/apache-giraph/giraph-job-application-response-example/)
+- [Giraph Job Applications Response Example](https://apis.io/examples/apache-giraph/giraph-job-applications-response-example/)
+- [Giraph Job Cluster Metrics Response Example](https://apis.io/examples/apache-giraph/giraph-job-cluster-metrics-response-example/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Apache Giraph Job Monitoring Cluster API](https://apis.io/collections/apache-giraph/open-apache-giraph-cluster-api/)
+- [Apache Giraph Job Monitoring API](https://apis.io/collections/apache-giraph/open-apache-giraph-job/)
+- [Apache Giraph Job Monitoring Cluster Job Management API](https://apis.io/collections/apache-giraph/open-apache-giraph-job-management-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Apache Giraph — jsonschema rules](https://apis.io/rules/apache-giraph/apache-giraph-jsonschema-spectral-rules/)
+- [Apache Giraph API Rules](https://apis.io/rules/apache-giraph/apache-giraph-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apache Giraph Domain Security](https://apis.io/security/apache-giraph/apache-giraph-domain-security/)
+- [Apache Giraph Vulnerability Disclosure](https://apis.io/security/apache-giraph/apache-giraph-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apache Giraph Plans Pricing](https://apis.io/plans/apache-giraph/apache-giraph-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apache Giraph Rate Limits](https://apis.io/rate-limits/apache-giraph/apache-giraph-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apache Giraph Finops](https://apis.io/finops/apache-giraph/apache-giraph-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.apache.org/)
 - [Documentation](https://giraph.apache.org/)
-- [Getting Started](https://giraph.apache.org/quick_start.html)
-- [GitHub Organization](https://github.com/apache)
-- [GitHub Repository](https://github.com/apache/giraph)
-- [Spectral Rules](rules/apache-giraph-spectral-rules.yml)
-- [Vocabulary](vocabulary/apache-giraph-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Getting started](https://giraph.apache.org/quick_start.html)
+- [GitHub](https://github.com/apache)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
+**Kin Score 30.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 51.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 7.9 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apache-giraph/](https://apis.io/providers/apache-giraph/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache Giraph: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apache-giraph/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
